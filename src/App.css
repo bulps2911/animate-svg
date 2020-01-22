@@ -1,0 +1,99 @@
+.App {
+  text-align: left;
+  display: grid;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* align-items: stretch; */
+}
+.App p{
+  font-size: 20px;
+  /* margin: 50px; */
+  margin: 50px 50px 0px 50px;
+}
+
+.App h1{
+  margin: 0px 50px 50px 50px;
+}
+
+.Drogon{
+  position: absolute;
+  left: 25%;
+}
+
+
+.Flames{
+  position: absolute;
+  top:55%;
+  left: 25%;
+}
+
+[class^="Sub-"]{
+  min-height: 100vh;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  color: honeydew;
+}
+
+.Sub-1{
+  background-color: cadetblue;
+}
+
+.Sub-2{
+  background-color: coral;
+}
+
+.Sub-3{
+  background-color: gold;
+  color: darkolivegreen;
+}
+
+@media (min-width:700px){
+
+  .App{
+    display: grid;
+    grid-template-areas: 
+    "sub1 sub2"
+    "sub1 sub3";
+  }
+
+  [class^="Sub-"]{
+    background-color: honeydew;
+    min-height: 50vh;
+    color: black;
+  }
+ 
+  [class^="Sub-"]:hover{
+    transition: 0.5s ease-in;
+    color: honeydew;
+  
+  }
+
+  .Sub-1{
+    grid-area: sub1;
+    position: relative;
+  }
+  
+  .Sub-1:hover{
+    background-color: cadetblue;
+  }
+
+ 
+
+  .Sub-2{
+    grid-area: sub2;
+  }
+  
+  .Sub-2:hover{
+    background-color: coral;
+  }
+
+  .Sub-3{
+    grid-area: sub3;
+  }
+  
+  .Sub-3:hover{
+    background-color: orange;
+    color: darkolivegreen;
+  }
+}
+
