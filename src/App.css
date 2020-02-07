@@ -1,99 +1,109 @@
 .App {
   text-align: left;
+  height: 100vh;
   display: grid;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  /* align-items: stretch; */
-}
-.App p{
-  font-size: 20px;
-  /* margin: 50px; */
-  margin: 50px 50px 0px 50px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.App h1{
-  margin: 0px 50px 50px 50px;
+.Drogon {
+  position: relative;
+  width: 60vw; /* try not to set fixed dimensions for images unless they are small icons */
 }
 
-.Drogon{
+.Flames {
   position: absolute;
-  left: 25%;
+  bottom: 0;
+  width: calc(100% - 4rem);
 }
 
-
-.Flames{
-  position: absolute;
-  top:55%;
-  left: 25%;
-}
-
-[class^="Sub-"]{
+[class^="Sub-"] {
   min-height: 100vh;
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   color: honeydew;
 }
 
-.Sub-1{
+.Sub-1 {
   background-color: cadetblue;
 }
 
-.Sub-2{
+.Sub-2 {
   background-color: coral;
 }
 
-.Sub-3{
+.Sub-3 {
   background-color: gold;
   color: darkolivegreen;
 }
 
-@media (min-width:700px){
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem;
+  min-height: 100vh;
+}
 
-  .App{
-    display: grid;
-    grid-template-areas: 
-    "sub1 sub2"
-    "sub1 sub3";
+.box p {
+  font-size: 20px;
+}
+
+.box h1 {
+  margin-top: 1rem;
+}
+
+@media (min-width: 700px) {
+  .App {
+    grid-template-areas:
+      "sub1 sub2"
+      "sub1 sub3";
   }
 
-  [class^="Sub-"]{
+  .Drogon {
+    width: 200px;
+  }
+
+  .box {
+    padding: 4rem;
+    min-height: initial;
+  }
+
+  [class^="Sub-"] {
     background-color: honeydew;
-    min-height: 50vh;
+    /* min-height: 50vh; */
     color: black;
   }
- 
-  [class^="Sub-"]:hover{
+
+  [class^="Sub-"]:hover {
     transition: 0.5s ease-in;
     color: honeydew;
-  
   }
 
-  .Sub-1{
+  .Sub-1 {
     grid-area: sub1;
     position: relative;
   }
-  
-  .Sub-1:hover{
+
+  .Sub-1:hover {
     background-color: cadetblue;
   }
 
- 
-
-  .Sub-2{
+  .Sub-2 {
     grid-area: sub2;
   }
-  
-  .Sub-2:hover{
+
+  .Sub-2:hover {
     background-color: coral;
   }
 
-  .Sub-3{
+  .Sub-3 {
     grid-area: sub3;
   }
-  
-  .Sub-3:hover{
+
+  .Sub-3:hover {
     background-color: orange;
     color: darkolivegreen;
   }
 }
-
