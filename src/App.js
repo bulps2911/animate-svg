@@ -15,7 +15,6 @@ const waveb = keyframes`
   }
 `;
 
-
 const DragonBreathingFire = styled.span`
   &:hover{
     cursor:pointer;
@@ -32,9 +31,9 @@ const DragonBreathingFire = styled.span`
   .Drogon{
     [class^="fire-"]{
       animation: ${props =>
-        props.status === "open" ? `drawin` : `drawout`} 3s ease-in-out infinite;
+        props.status ? `drawin` : `drawout`} 3s ease-in-out infinite;
       animation-fill-mode: forwards;
-      stroke-dashoffset: ${props => (props.status === "open" ? `0%` : `100%`)};
+      stroke-dashoffset: ${props => (props.status ? `0%` : `100%`)};
     }
     
     [class^="haira-"]{
@@ -47,10 +46,10 @@ const DragonBreathingFire = styled.span`
   }
 
   .Flames {
-    display: ${props => (props.status === "open" ? "block" : "none")};
+    display: ${props => (props.status ? "block" : "none")};
 
     [class^="flame-"] {
-      stroke-dashoffset: ${props => (props.status === "open" ? `0%` : `100%`)};
+      stroke-dashoffset: ${props => (props.status ? `0%` : `100%`)};
     }
 
     .flame-maina {
@@ -82,15 +81,20 @@ const TextBlock = ({ title, subtitle }) => (
   </div>
 );
 
-function App() {
-  const [iconStatus, setIconStatus] = React.useState("default");
-  const toggle = () => {
-    iconStatus === "default" ? setIconStatus("open") : setIconStatus("default");
-  };
+const Box = ({ children, className, ...props }) => (
+  <div className={`${className ? className : null} box`} {...props}>
+    {children}
+  </div>
+);
 
+function App() {
+  const [iconStatus, setIconStatus] = React.useState(false);
+  const toggle = () => {
+    setIconStatus(!iconStatus);
+  };
   return (
     <div className="App">
-      <div className="Sub-1 box" id="Sub1">
+      <Box className="Sub-1" id="Sub1">
         <TextBlock
           subtitle="Adipisicing adipisicing proident tempor magna"
           title="Deserunt Lorem magna dolore consequat duis dolor tempor exercitation."
@@ -104,19 +108,19 @@ function App() {
           <Dragon className="Drogon" />
           <Flame className="Flames" />
         </DragonBreathingFire>
-      </div>
-      <div className="Sub-2 box">
+      </Box>
+      <Box className="Sub-2">
         <TextBlock
           subtitle="Adipisicing adipisicing proident tempor magna"
           title="Deserunt Lorem magna dolore consequat duis dolor tempor exercitation."
         />
-      </div>
-      <div className="Sub-3 box">
+      </Box>
+      <Box className="Sub-3">
         <TextBlock
           subtitle="Adipisicing adipisicing proident tempor magna"
           title="Deserunt Lorem magna dolore consequat duis dolor tempor exercitation."
         />
-      </div>
+      </Box>
     </div>
   );
 }
